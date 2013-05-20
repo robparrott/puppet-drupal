@@ -17,15 +17,23 @@ class webserver::custom_php {
   php::extension { 'pecl-memcache': }
 }
 
-class webserver {
+class webserver::custom_apache {
+  class {'apache::params':
+    port        => "8081",
+  }
   include apache
+}
+
+
+class webserver {
+  include webserver::custom_apache
   include memcached
   include webserver::custom_php
   include varnish
   include drupal
 
 #  include mysql::server
-#  include mysql::client
+  include mysql::client
 
 #  include tomcat
 #  include solr  
