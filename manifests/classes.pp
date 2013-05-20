@@ -24,8 +24,11 @@ class webserver {
   include varnish
   include drupal
 
-  include mysql::server
-  include mysql::client
-  
-  include drush
+#  include mysql::server
+#  include mysql::client
+
+#  include tomcat
+#  include solr  
+
+#  include drush
 }
