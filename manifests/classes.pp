@@ -33,8 +33,8 @@ class webserver::custom_tomcat {
 
 class webserver::custom_varnish {
   class {'varnish::params':
-    backend_host => "127.0.0.1"",
-    backend_port => 8080    
+    backend_host => "127.0.0.1",
+    backend_port => 8080,    
   }
   include varnish
 }
