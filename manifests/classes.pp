@@ -36,7 +36,7 @@ class webserver {
   include memcached
   include webserver::custom_php
   include varnish
-  include drupal
+#  include drupal
 
   include mysql::server
   include mysql::client
