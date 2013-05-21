@@ -36,7 +36,6 @@ class webserver::drupal {
     documentroot => "/var/www/drupal",
     port         => 8080,
     aliases      => ["localhost", $ipaddress, "127.0.0.1"]
-    }
   }
 }
 
