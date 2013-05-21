@@ -32,9 +32,11 @@ class webserver::custom_tomcat {
 }
 
 class webserver::drupal {
-  apache::vhost { "127.0.0.1":
+  apache::vhost { $hostname:
     documentroot => "/var/www/drupal",
-    port         => 8080
+    port         => 8080,
+    aliases      => ["localhost", $ipaddress, "127.0.0.1"]
+    }
   }
 }
 
