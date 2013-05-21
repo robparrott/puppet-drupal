@@ -19,11 +19,17 @@ class webserver::custom_php {
 
 class webserver::custom_apache {
   class {'apache::params':
-    port        => "8081",
+    port => 8080,
   }
   include apache
 }
 
+class webserver::custom_tomcat {
+  class {'tomcat::params':
+    port => 8081,
+  }
+  include tomcat
+}
 
 class webserver {
   include webserver::custom_apache
@@ -35,8 +41,8 @@ class webserver {
   include mysql::server
   include mysql::client
 
-  include tomcat
-  include solr  
+#  include webserver::custom_tomcat 
+#  include solr  
 
   include drush
 }
