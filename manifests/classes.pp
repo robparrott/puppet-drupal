@@ -31,6 +31,14 @@ class webserver::custom_tomcat {
   include tomcat
 }
 
+class webserver::drupal {
+  apache::vhost { "127.0.0.1":
+    documentroot => "/var/www/drupal",
+    port         => 8080,
+    aliases      => "localhost"  
+  }
+}
+
 class webserver {
   include webserver::custom_apache
   include memcached
@@ -40,6 +48,8 @@ class webserver {
 
   include mysql::server
   include mysql::client
+
+  include webserver::drupal
 
 #  include webserver::custom_tomcat 
 #  include solr  
