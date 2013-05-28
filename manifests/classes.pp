@@ -61,5 +61,6 @@ class webserver {
 #  include solr  
 #  include drupal
 
-  include drush
+#  include drush # Use pear to install drush
+  
 }
